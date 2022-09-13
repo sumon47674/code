@@ -220,6 +220,7 @@
         .bullet.completed {
             color: white;
             background-color: #28a745;
+            --myVar: defaultValue;
         }
 
 
@@ -231,7 +232,8 @@
             bottom: 10px;
             height: 1px;
             width: 54px;
-            background-color: #28a745;
+            background: var(--tooltip-color);
+
         }
 
         /* Base styles and helper stuff */
@@ -334,7 +336,7 @@
                     "unitno": "4",
                     "unitnocolor": "green",
                     "title": "What to Do Now: The Doing Column",
-                    "task": "f,g"
+                    "task": "f,g,h"
                 }
 
             ]
@@ -351,7 +353,8 @@
             var array = items[i].task.split(',').length;
             var parray = items[i].task.split(',');
             for (var k = 0; k < array; k++) {
-                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div style="background:' + items[i].unitnocolor + '" class="bullet completed"></div></div>';
+                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div data-caption="red" style="--tooltip-color:' + items[i].unitnocolor + ';border:1px solid; background:' + items[i].unitnocolor + '" class="bullet completed completed' + k + '"></div></div>';
+
                 jQuery('.stepProgressBar' + i + '').append(put);
             }
 
