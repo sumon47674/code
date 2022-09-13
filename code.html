@@ -351,7 +351,7 @@
             var array = items[i].task.split(',').length;
             var parray = items[i].task.split(',');
             for (var k = 0; k < array; k++) {
-                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div class="bullet completed"></div></div>';
+                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div style="background:' + items[i].unitnocolor + '" class="bullet completed"></div></div>';
                 jQuery('.stepProgressBar' + i + '').append(put);
             }
 
